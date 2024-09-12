@@ -1,0 +1,116 @@
+@layer reset {
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  
+  body{
+    --gap: clamp(1rem, 8vw, 3rem);
+    --full: minmax(var(--gap), 1fr);
+    --content: min(calc(1200px - var(--gap) * 2));
+  
+    display: grid;
+    grid-template-columns: 
+        [full-start] var(--full)
+        [content-start] var(--content) [content-end]
+        var(--full) [full-end];
+  
+     & *.full {
+        grid-column: full;
+    }
+  
+  }
+  
+  body > * {
+    grid-column: content;
+  }
+  
+  }
+  body > :nth-child(n+3) {
+    margin-block-start: 5rem;
+  }
+  
+  
+  
+  
+  @layer base {
+    :root {
+  
+      --color-primary-1: #FFC44A;
+      --color-primary-2: #4EAF4E;
+      --color-primary-3: #181818;
+      --color-secondary-1: #F5F5F5;
+      --color-secondary-2: #FFFFFF;
+      --color-secondary-3: #595566;
+  
+  
+      --font-family-primary: "Cabin", sans-serif;
+      --font-family-secondary: "Lato", sans-serif;
+      --paragraph: clamp(0.8rem, 2vw + .5rem, 1rem);
+      --heading-base: clamp(0.5rem, 1vw + .5rem, 1.56);
+      --heading-xsmall: clamp(1.2rem, 1.5vw + .5rem, 1.87rem);
+      --heading-small: clamp(1.2rem, 1.3vw + .8rem, 2.18rem);
+      --heading-large: clamp(1rem, 2vw + 1rem, 2.5rem);
+      --heading-xlarge: clamp(1.8rem, 2vw + 1rem, 2.8rem);
+      --heading-xxlarge: clamp(2.4rem, 1vw + 1rem, 3.12rem);
+    }
+  
+    h1 {
+      font-family: var(--font-family-primary);
+      font-size: var(--heading-xxlarge);
+    }
+  
+    h2 {
+      font-family: var(--font-family-primary);
+      font-size: var(--heading-xlarge);
+    }
+  
+    h3 {
+      font-family: var(--font-family-primary);
+      font-size: var(--heading-large);
+    }
+  h4 {
+  font-family: var(--font-family-primary);
+  font-size: var(--heading-small);
+  }
+  
+  h5 {
+  font-family: var(--font-family-primary);
+  font-size: var(--heading-xsmall);
+  }
+  
+  h6 {
+  font-family: var(--font-family-primary);
+  font-size: var(--heading-base);
+  }
+  
+  p{
+  font-family: var(--font-family-secondary);
+  font-size: var(--paragraph);
+  color: var(--color-secondary-3);
+  }
+  
+  a {
+  text-decoration: none;
+  font-family: var(--font-family-secondary);
+  font-size: var(--paragraph);
+  }
+  
+  
+    
+  }
+  
+  
+  
+  @layer components {
+  
+  button {
+  font-family: var(--font-family-secondary);
+  font-size: var(--paragraph);
+  }
+  
+  
+  }
+  
+  
